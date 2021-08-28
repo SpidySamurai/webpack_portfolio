@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const DotEnvWebpack = require("dotenv-webpack");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer");
+const { webpack } = require("webpack");
+
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -83,6 +86,7 @@ module.exports = {
       ],
     }),
     new DotEnvWebpack(),
+    new BundleAnalyzerPlugin(),
   ],
   devServer: {
     static: path.join(__dirname, "dist"),
